@@ -1,39 +1,12 @@
-import { Layout, Menu, MenuProps } from "antd";
-import { Outlet } from "react-router-dom";
-const { Header, Content, Footer, Sider } = Layout;
+import { Layout, Menu } from "antd";
 
-const items: MenuProps["items"] = [
-  {
-    key: "1",
-    label: "Dashboard",
-  },
-  {
-    key: "2",
-    label: "Users",
-    children: [
-      {
-        key: "2-1",
-        label: "All Users",
-      },
-      {
-        key: "2-2",
-        label: "Add User",
-      },
-    ],
-  },
-  {
-    key: "3",
-    label: "Settings",
-  },
-  {
-    key: "4",
-    label: "Logout",
-  },
-];
+import { Outlet } from "react-router-dom";
+import { adminSidebarItems } from "../../routes/admin.routes";
+const { Header, Content, Footer, Sider } = Layout;
 
 const MainLayout = () => {
   return (
-    <Layout style={{ minHeight: "100vh" }}>
+    <Layout style={{ height: "100vh" }}>
       <Sider
         breakpoint="lg"
         collapsedWidth="0"
@@ -47,19 +20,20 @@ const MainLayout = () => {
         <div
           style={{
             color: "white",
+
             height: "4rem",
             display: "flex",
-            alignItems: "center",
             justifyContent: "center",
+            alignItems: "center",
           }}
         >
-          <h1>PH-Uni</h1>
+          <h1>PH Uni</h1>
         </div>
         <Menu
           theme="dark"
           mode="inline"
           defaultSelectedKeys={["4"]}
-          items={items}
+          items={adminSidebarItems}
         />
       </Sider>
       <Layout>
